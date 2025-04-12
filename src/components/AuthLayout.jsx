@@ -1,14 +1,8 @@
 
-import { ReactNode } from "react";
+import { React } from "react";
 import Logo from "./Logo";
 
-interface AuthLayoutProps {
-  children: ReactNode;
-  title: string;
-  subtitle: string;
-}
-
-const AuthLayout = ({ children, title, subtitle }: AuthLayoutProps) => {
+const AuthLayout = ({ children, title, subtitle }) => {
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
       <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-lg">

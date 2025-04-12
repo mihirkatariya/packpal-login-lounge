@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { React, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -7,11 +7,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/components/ui/use-toast";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 
-interface SignupFormProps {
-  onSwitchToLogin: () => void;
-}
-
-const SignupForm = ({ onSwitchToLogin }: SignupFormProps) => {
+const SignupForm = ({ onSwitchToLogin }) => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +16,7 @@ const SignupForm = ({ onSwitchToLogin }: SignupFormProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (!fullName || !email || !password) {

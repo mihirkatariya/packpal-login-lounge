@@ -1,12 +1,7 @@
 
 import React from 'react';
 
-interface LogoProps {
-  size?: "small" | "medium" | "large";
-  className?: string;
-}
-
-const Logo = ({ size = "medium", className = "" }: LogoProps) => {
+const Logo = ({ size = "medium", className = "" }) => {
   const sizeClasses = {
     small: "h-8 w-auto",
     medium: "h-12 w-auto",
