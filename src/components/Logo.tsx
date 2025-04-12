@@ -1,22 +1,26 @@
 
-import { Compass } from "lucide-react";
+import React from 'react';
 
 interface LogoProps {
   size?: "small" | "medium" | "large";
-  color?: string;
+  className?: string;
 }
 
-const Logo = ({ size = "medium", color = "text-brand-blue" }: LogoProps) => {
+const Logo = ({ size = "medium", className = "" }: LogoProps) => {
   const sizeClasses = {
-    small: "text-xl",
-    medium: "text-2xl",
-    large: "text-3xl",
+    small: "h-8 w-auto",
+    medium: "h-12 w-auto",
+    large: "h-16 w-auto",
   };
 
   return (
-    <div className="flex items-center gap-2">
-      <Compass className={`${color}`} />
-      <span className={`font-bold ${sizeClasses[size]} ${color}`}>PackPal</span>
+    <div className={`flex items-center gap-2 ${className}`}>
+      <img 
+        src="/pack-pal-logo.png" 
+        alt="Pack-Pal Logo" 
+        className={`${sizeClasses[size]}`} 
+      />
+      <span className="sr-only">Pack-Pal</span>
     </div>
   );
 };
