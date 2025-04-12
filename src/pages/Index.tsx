@@ -1,12 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useState } from "react";
+import AuthLayout from "@/components/AuthLayout";
+import LoginForm from "@/components/LoginForm";
+import SignupForm from "@/components/SignupForm";
 
 const Index = () => {
+  const [isLoginView, setIsLoginView] = useState(true);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gray-50">
+      {isLoginView ? (
+        <AuthLayout 
+          title="Welcome back" 
+          subtitle="Log in to your account to continue managing your logistics operations."
+        >
+          <LoginForm onSwitchToSignup={() => setIsLoginView(false)} />
+        </AuthLayout>
+      ) : (
+        <AuthLayout 
+          title="Create your account" 
+          subtitle="Join thousands of logistics professionals using PackPal."
+        >
+          <SignupForm onSwitchToLogin={() => setIsLoginView(true)} />
+        </AuthLayout>
+      )}
     </div>
   );
 };
