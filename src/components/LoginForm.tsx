@@ -38,7 +38,7 @@ const LoginForm = ({ onSwitchToSignup }: LoginFormProps) => {
       setIsLoading(false);
       toast({
         title: "Login successful",
-        description: "Welcome back to PackPal!",
+        description: "Welcome to PackPal Trip Planner!",
       });
       
       // Here you would normally redirect to dashboard
@@ -48,17 +48,16 @@ const LoginForm = ({ onSwitchToSignup }: LoginFormProps) => {
 
   return (
     <div className="animate-fade-in">
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-5">
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>
           <Input
             id="email"
             type="email"
-            placeholder="name@company.com"
+            placeholder="name@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="h-12"
           />
         </div>
         
@@ -81,7 +80,6 @@ const LoginForm = ({ onSwitchToSignup }: LoginFormProps) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="h-12 pr-10"
             />
             <button
               type="button"
@@ -106,7 +104,7 @@ const LoginForm = ({ onSwitchToSignup }: LoginFormProps) => {
         
         <Button 
           type="submit" 
-          className="w-full h-12 bg-brand-blue hover:bg-brand-blue/90"
+          className="w-full bg-brand-blue hover:bg-brand-blue/90"
           disabled={isLoading}
         >
           {isLoading ? (
@@ -120,7 +118,7 @@ const LoginForm = ({ onSwitchToSignup }: LoginFormProps) => {
         </Button>
       </form>
       
-      <div className="mt-6 text-center text-sm text-gray-600">
+      <div className="mt-5 text-center text-sm text-gray-600">
         Don't have an account?{" "}
         <button
           onClick={onSwitchToSignup}

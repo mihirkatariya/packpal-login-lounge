@@ -8,18 +8,18 @@ const Index = () => {
   const [isLoginView, setIsLoginView] = useState(true);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 to-blue-100">
       {isLoginView ? (
         <AuthLayout 
-          title="Welcome back" 
-          subtitle="Log in to your account to continue managing your logistics operations."
+          title="Welcome to PackPal Trip Planner" 
+          subtitle="Log in to your account to start planning your next journey."
         >
           <LoginForm onSwitchToSignup={() => setIsLoginView(false)} />
         </AuthLayout>
       ) : (
         <AuthLayout 
-          title="Create your account" 
-          subtitle="Join thousands of logistics professionals using PackPal."
+          title="Join PackPal Trip Planner" 
+          subtitle="Create an account to organize your trips efficiently."
         >
           <SignupForm onSwitchToLogin={() => setIsLoginView(true)} />
         </AuthLayout>

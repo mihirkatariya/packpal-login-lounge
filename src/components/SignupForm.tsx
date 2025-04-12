@@ -15,7 +15,6 @@ const SignupForm = ({ onSwitchToLogin }: SignupFormProps) => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [companyName, setCompanyName] = useState("");
   const [agreeToTerms, setAgreeToTerms] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +23,7 @@ const SignupForm = ({ onSwitchToLogin }: SignupFormProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!fullName || !email || !password || !companyName) {
+    if (!fullName || !email || !password) {
       toast({
         title: "Error",
         description: "Please fill in all required fields",
@@ -49,11 +48,11 @@ const SignupForm = ({ onSwitchToLogin }: SignupFormProps) => {
       setIsLoading(false);
       toast({
         title: "Account created",
-        description: "Welcome to PackPal! Your account has been created successfully.",
+        description: "Welcome to PackPal Trip Planner! Your account has been created successfully.",
       });
       
       // Here you would normally redirect to dashboard or email verification
-      console.log("User signed up:", { fullName, email, companyName });
+      console.log("User signed up:", { fullName, email });
     }, 1500);
   };
 
@@ -68,32 +67,18 @@ const SignupForm = ({ onSwitchToLogin }: SignupFormProps) => {
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
             required
-            className="h-12"
           />
         </div>
         
         <div className="space-y-2">
-          <Label htmlFor="email">Work Email</Label>
+          <Label htmlFor="email">Email</Label>
           <Input
             id="email"
             type="email"
-            placeholder="name@company.com"
+            placeholder="name@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="h-12"
-          />
-        </div>
-        
-        <div className="space-y-2">
-          <Label htmlFor="company">Company Name</Label>
-          <Input
-            id="company"
-            placeholder="Your Company Ltd."
-            value={companyName}
-            onChange={(e) => setCompanyName(e.target.value)}
-            required
-            className="h-12"
           />
         </div>
         
@@ -107,7 +92,6 @@ const SignupForm = ({ onSwitchToLogin }: SignupFormProps) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="h-12 pr-10"
             />
             <button
               type="button"
@@ -142,7 +126,7 @@ const SignupForm = ({ onSwitchToLogin }: SignupFormProps) => {
         
         <Button 
           type="submit" 
-          className="w-full h-12 bg-brand-blue hover:bg-brand-blue/90 mt-2"
+          className="w-full bg-brand-blue hover:bg-brand-blue/90 mt-2"
           disabled={isLoading}
         >
           {isLoading ? (
@@ -156,7 +140,7 @@ const SignupForm = ({ onSwitchToLogin }: SignupFormProps) => {
         </Button>
       </form>
       
-      <div className="mt-6 text-center text-sm text-gray-600">
+      <div className="mt-5 text-center text-sm text-gray-600">
         Already have an account?{" "}
         <button
           onClick={onSwitchToLogin}
